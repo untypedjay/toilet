@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToiletSimulation", "ToiletSimulation\ToiletSimulation.csproj", "{DD0C1134-7EE3-4736-840E-83C75CDD9146}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD0C1134-7EE3-4736-840E-83C75CDD9146}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD0C1134-7EE3-4736-840E-83C75CDD9146}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD0C1134-7EE3-4736-840E-83C75CDD9146}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD0C1134-7EE3-4736-840E-83C75CDD9146}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1DA61A76-14CD-4552-A195-5F3CCB9C41D8}
+	EndGlobalSection
+EndGlobal
