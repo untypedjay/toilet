@@ -9,11 +9,11 @@ namespace VPS.ToiletSimulation
             int randomSeed = new Random().Next();
             IQueue q;
 
-            q = new FIFOQueue();
-            TestQueue(q, randomSeed);
+            //q = new FIFOQueue();
+            //TestQueue(q, randomSeed);
 
-            // q = new ToiletQueue();
-            // TestQueue(q, randomSeed);
+            q = new ToiletQueue();
+            TestQueue(q, randomSeed);
 
             Console.WriteLine("Done.");
         }
