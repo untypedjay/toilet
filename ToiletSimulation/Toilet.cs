@@ -9,6 +9,7 @@ namespace VPS.ToiletSimulation
 
         private IQueue queue;
         private Thread consumer;
+        private static Mutex mutex = new Mutex();
 
         public Toilet(string name, IQueue queue)
         {
@@ -26,14 +27,17 @@ namespace VPS.ToiletSimulation
         {
             while (!queue.IsCompleted)
             {
+
                 if (queue.TryDequeue(out IJob job))
                 {
+                    if (job != null)
+                    {
                     job.Process();
+                    }
                 }
                 else
                 {
                     Console.WriteLine("No jobs in queue.");
-                    // TODO: put thread to sleep
                 }
             }
             Console.WriteLine("Everything done.");

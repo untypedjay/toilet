@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace VPS.ToiletSimulation
 {
     public class FIFOQueue : Queue
     {
         private Queue<IJob> queue = new Queue<IJob>();
+        private static Mutex mutex = new Mutex();
         public FIFOQueue() { }
 
         public override void Enqueue(IJob job)
@@ -15,14 +17,23 @@ namespace VPS.ToiletSimulation
 
         public override bool TryDequeue(out IJob job)
         {
-            if (queue.Count > 0)
+            try
             {
-                job = queue.Dequeue();
-                return true;
+                mutex.WaitOne();
+                if (queue.Count > 0)
+                {
+                    job = queue.Dequeue();
+                    return true;
+                }
+
+                job = null;
+                return false;
+            }
+            finally
+            {
+                mutex.ReleaseMutex();
             }
 
-            job = null;
-            return false;
         }
 
         public override void CompleteAdding()

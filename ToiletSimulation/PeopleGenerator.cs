@@ -36,6 +36,7 @@ namespace VPS.ToiletSimulation
                 personId++;
                 queue.Enqueue(new Person(random, Name + " - Person " + personId.ToString("00")));
             }
+            queue.CompleteAdding();
         }
     }
 }

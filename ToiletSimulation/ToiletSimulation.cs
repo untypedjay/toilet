@@ -39,13 +39,17 @@ namespace VPS.ToiletSimulation
             for (int i = 0; i < consumers.Length; i++)
                 consumers[i].Consume();
 
-            // TODO: wait for simulation to finish ...
+            foreach (var consumer in consumers)
+            {
+                consumer.Join();
+            }
 
             Analysis.Display();
 
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
+            Console.Read();
         }
     }
 }
