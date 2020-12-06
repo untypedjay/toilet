@@ -27,8 +27,11 @@ namespace VPS.ToiletSimulation
 
         public override void CompleteAdding()
         {
-            // TODO ...
-            throw new NotImplementedException();
+            WorkingProducers--;
+            if (WorkingProducers == 0)
+            {
+                AllProducersDone = true;
+            }
         }
     }
 }

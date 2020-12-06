@@ -4,8 +4,8 @@ namespace VPS.ToiletSimulation
 {
     public abstract class Queue : IQueue
     {
-        private int CompletedProducers = 0;
-        private bool AllProducersDone = false;
+        protected int WorkingProducers = Parameters.Producers;
+        protected bool AllProducersDone = false;
         protected Queue() { }
 
         public abstract void Enqueue(IJob job);
@@ -14,8 +14,8 @@ namespace VPS.ToiletSimulation
 
         public virtual void CompleteAdding()
         {
-            CompletedProducers++;
-            if (CompletedProducers == Parameters.Producers)
+            WorkingProducers--;
+            if (WorkingProducers == 0)
             {
                 AllProducersDone = true;
             }
